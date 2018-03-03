@@ -1,6 +1,6 @@
 body {
   background-color: #f2efe8;
-  background-image: url("../img/_bg_light.png")
+  background-image: url("../img/bg_light.png")
 }
 
 /*
@@ -66,7 +66,7 @@ hr {
   margin-top: 0;
 }
 .bg-dark {
-  background-image: url("../img/_bg_dark.png");
+  background-image: url("../img/bg_dark.png");
 }
 .bg-orange {
   background-color: #ff5f01;
