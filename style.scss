@@ -1,0 +1,63 @@
+@mixin ring($diameter, $ring-color) {
+  width: $diameter;
+  height: $diameter;
+  border: $diameter/10 solid $ring-color;
+  border-radius: $diameter;
+  box-shadow: inset ($diameter/20) ($diameter/20) ($diameter/10) darken($ring-color, 10%), ($diameter/20) ($diameter/20) ($diameter/10) darken($ring-color, 10%);
+}
+ .scss {
+   margin:auto;
+   padding: 1.5em;
+   text-align: center;
+ }
+ .Precious {
+   padding: 1.5em;
+   h1 {
+     &::before {
+       margin-right:1em;
+     }
+     &::after {
+       margin-left:1em;
+     }
+     &::before, &::after {
+        @include ring (1em, #ff5f01);
+        content:'';
+        display: inline-block;
+        vertical-align: bottom;
+     }
+   }
+ }
+ 
+ .TheOneRing {
+   padding: 1.5em;
+   h1 {
+     &::before {
+       margin-right: 1em;
+       @include ring(5em, #fdcc09);
+        content:'';
+        display: inline-block;
+        line-height: 6em;
+        vertical-align: middle;
+     }
+   }
+ }
+ 
+  .rings p {
+    padding: 1.5em;
+    margin-left: 11.2em; 
+    position: relative;
+  }
+ 
+ $left: 0;
+@for $i from 1 to 7 {
+  .circle#{$i} {
+    $diameter: (0.4*$i)+2em;
+    display: inline-block;
+    @include ring($diameter, #383838);
+    line-height: 2.2em;
+    position: relative;
+    left:-($diameter/2)+$left;
+    $left: -($diameter/2)+$left;
+    vertical-align: middle;
+  }
+}
